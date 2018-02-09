@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="en">
+   <header>
+      <title>Road Trip Planner - Find the Shortest Route, Save Time</title>     
+       <meta name = "description" content = "Planning for a trip with Multiple Destinations? Here is a simple solution that helps you calculate the shortest route in the least possible time.">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="keywords" content="road trip, shortest distance, road map, google maps, google maps api, multiple destinations, shortest route, shortest path, shortest distance" />
+    <meta name="robots" content="index,follow"/>
+       <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+      <link href="css/bootstrap.min.css" rel="stylesheet">
+      <style type="text/css">
+         #map-display{
+         width:100%; height:400px; margin-bottom:40px;
+         }  
+         .logo{ background:url("img/road-trip.jpg") no-repeat;
+         	padding-top:20px;
+         	width:400px;
+         	height:199px;
+         	repeat:none;
+         }
+         
+         label{font-weight:bold;}
+
+      </style>
+       <script type="text/javascript">
+
+            function check()
+            {
+                if (!gmaps.from.value || !gmaps.to.value)
+                {
+                    alert ("Please fill all the Location fields");
+                    return false;
+                }
+                return true;
+            }
+
+        </script>
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+      <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
+   </header>
+   <body>
+      <div class="container">
+         <center>
+            <h2>Road Trip Planner</h2>
+            <div class="logo"></div>
+         </center>
+         <form name="gmaps" id="gMaps"> 
+         <div class="alert alert-success">A Google Maps API implented product, this Road Trip Planner application helps you find the detailed route for the given destination including the total distance and approximate time needed to cover the journey. In case if you are planning a journey that involves multiple locations, you can enter them in any order and the application will help you in choosing the best possible routes so as to cover the whole trip in the minimal span of time.</div>  
+         <center>
+         <div class="pw-widget pw-counter-horizontal">			
+	<a class="pw-button-facebook pw-look-native"></a>			
+	<a class="pw-button-twitter pw-look-native"></a>			
+	<a class="pw-button-linkedin pw-look-native"></a>			
+	<a class="pw-button-post-share"></a>		
+</div>
+<script src="http://i.po.st/static/v3/post-widget.js#publisherKey=7gjej74ub9s6fugkm67m&retina=true" type="text/javascript"></script></center>
+<br />
+
+               <label>Start point :</label>
+              
+                  <input type="text" style="height:35px;" id="fromAddress" name="from" class="input" placeholder="New York, NY, United States">
+                  &nbsp;<a href="#" class="label label-success" onclick="return add_waypoint();">Add More Places</a>
+              
+           <div class="destination-container">
+            
+               <label>End point :</label>
+              
+                  <input type="text" id="toAddress"  style="height:35px;" name="to" class="input" placeholder="New Jersey, United States">
+           </div>    
+         
+            
+               
+                  <button type="submit" class="btn btn-info" onclick="return check();">Draw My Route</button>
+                  <span id="loader"></span>               
+           
+         </form>
+         <div id="locations"></div>
+         <!-- to display list of locations entered -->
+         <div id="summary"></div>
+         <div id="distance"></div>
+         <div id="duration"></div>
+         <!-- to display total Distance & Duration -->
+         <div id="mapModal">
+            <div id="map_area">
+			 <!-- To show all directions, distance between individual locations --> 
+			<div id="directions"></div>
+			<!-- to show map -->
+               <div id="map-display" style="margin-bottom:100px;"></div>
+              
+            </div>
+         </div>
+      </div>
+      <script src="js/maps.js"></script>
+   </body>
+<footer style="width:100%;padding-top:5px; position:fixed;height:40px;bottom:0;left:0; background-color:#D3D9DF">
+<div class="container">
+By Nikhil Naik<a href="http://www.techarta.com/online-tools/" target="_blank" align="right" style="float: right;" class="btn btn-danger">Other Online Tools</a>
+
+</div>
+</footer>
+</html>
